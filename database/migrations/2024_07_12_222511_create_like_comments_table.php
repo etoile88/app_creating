@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('like_comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('comment_id');
+            $table->foreign('user_id')->constrained();
+            $table->foreign('comment_id')->constrained();
             $table->timestamps();
         });
     }

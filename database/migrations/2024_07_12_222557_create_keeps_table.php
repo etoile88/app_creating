@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('keeps', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('post_id');
+            $table->foreignId('post_id')->constrained();
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
