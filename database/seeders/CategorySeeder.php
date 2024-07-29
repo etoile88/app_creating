@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
             'ヒップホップ','歌謡曲・演歌','ジャズ','キッズ','クラシック','ワールドミュージック','その他'
             ];
         foreach ($genre as $name) {
-                DB::table('category')->insert(['name' => $name]);
+                DB::table('categories')->insert(['name' => $name]);
         }
     }
 
