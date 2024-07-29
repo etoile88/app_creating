@@ -15,9 +15,11 @@ use App\Http\Controllers\PostController;
 */
 //基本的なwebページのルート
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
-    //navigate.blade.phpのroute('index')を呼び出す名前付きルート
+    //上から順にルーティングを見ていくから順番大事
     Route::get('/', 'index')->name('index');
     Route::get('/posts/{comment}', 'comment')->name('comment');
+    Route::post('/posts/{post}/comment', 'upload')->name('upload');//ここのルートをどうすればいいかわからない
+    
     });
 
 
