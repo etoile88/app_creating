@@ -9,23 +9,17 @@
                 </ul>
             </div>
         </aside>
+        <div class="create">
+            <a href="/posts/post">post</a>
+        </div>
         <div class="posts">
             @foreach($posts as $post)
                 <div class="post">
-                    <h1 class="user_id">{{ $post->user_id }}名前</h1>
-                    <p1 class="body">{{ $post->body }}こんにちは</p1>
+                    <h1 class="user_id">ユーサー名{{ $post->user->name }}</h1>
+                    <p class="body"><a href="/posts/{{ $post->id }}">本文{{ $post->body }}</a></p>
         　　    </div>
             @endforeach
         </div>
-        <div class="comment">
-            <a href="/posts/comment">comment</a>  {{-- コメントマークにしたい --}}　
-        </div>
-        <div class="like">
-            <a href="">like</a>
-        </div>
-        <div class="keep">
-            <a href="">保存</a>
-        </div>    
         </div>
  
 </x-app-layout>

@@ -22,6 +22,15 @@ class PostSeeder extends Seeder
             'body'=> 'こんにちは',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
-            ]);
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id'=> '2',
+            'category_id'=> '2',
+            'image'=> null,
+            'body'=> 'konnnitiha',
+            'created_at'=> new DateTime(),
+            'updated_at'=> new DateTime(),
+        ]);
     }
 }
