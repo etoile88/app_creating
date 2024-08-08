@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +14,35 @@ use App\Http\Controllers\PostController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//基本的なwebページのルート
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
     //上から順にルーティングを見ていくから順番大事
+    Route::post('/posts', 'store')->name('store');
     Route::get('/', 'index')->name('index');
-    Route::get('/posts/{comment}', 'comment')->name('comment');
-    Route::post('/posts/{post}/comment', 'upload')->name('upload');//ここのルートをどうすればいいかわからない
+    Route::get('/posts/post', 'post')->name('post');
+    Route::get('/posts/{post}', 'show')->name('show');
     
+
     });
+    
+Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
+    Route::get('/posts/comment', 'comment')->name('comment');
+    Route::post('/posts/{post}/comment', 'create')->name('create');//ここのルートをどうすればいいかわからない
+    Route::post('/posts', 'store')->name('store');
+    });
+//基本的なwebページのルート
+// Route::controller(PostController::class)->middleware(['auth'])->group(function () {
+//     //上から順にルーティングを見ていくから順番大事
+//     Route::post('/posts', 'store')->name('store');
+//     Route::get('/', 'index')->name('index');
+//     Route::get('/posts/post', 'post')->name('post');
+
+//     });
+    
+// Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
+//     Route::get('/posts/comment', 'comment')->name('comment');
+//     Route::post('/posts/{post}/comment', 'upload')->name('upload');//ここのルートをどうすればいいかわからない
+//     Route::post('/posts', 'store')->name('store');
+// });
 
 
 

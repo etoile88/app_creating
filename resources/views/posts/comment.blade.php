@@ -4,7 +4,7 @@
         <form action="/posts/{{ $post->id }}/comment" method="POST" name="comment_form">
             @csrf
             <div class="commnet">
-                <textarea name="comment[body]" placeholder='好きな音楽を共有しよう！'></textarea><br>
+                <textarea name="comment[body]" placeholder='コメントしよう！'></textarea><br>
                 <p class="body_error" style="color:red">{{ $errors->first('comment.body') }}</p>
             </div>
             <input type="submit" value="送信"/>

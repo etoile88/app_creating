@@ -14,13 +14,40 @@ class CommentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('commnets')->insert([
-            'post_id'=> $post_id,
-            'user_id'=> $user_id,
-            'body'=>'こんにちは',
+        DB::table('comments')->insert([
+            'post_id'=> '1',
+            'user_id'=> '1',
+            'body'=>'こんにちは1',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
             'deleted_at'=> null,
-            ]);
+        ]);
+        
+        DB::table('comments')->insert([
+            'post_id'=> '1',
+            'user_id'=> '2',
+            'body'=>'こんにちは2',
+            'created_at'=> new DateTime(),
+            'updated_at'=> new DateTime(),
+            'deleted_at'=> null,
+        ]);
+        
+        DB::table('comments')->insert([
+            'post_id'=> '2',
+            'user_id'=> '1',
+            'body'=>'こんにちは3',
+            'created_at'=> new DateTime(),
+            'updated_at'=> new DateTime(),
+            'deleted_at'=> null,
+        ]);
+        
+        DB::table('comments')->insert([
+            'post_id'=> '2',
+            'user_id'=> '2',
+            'body'=>'こんにちは4',
+            'created_at'=> new DateTime(),
+            'updated_at'=> new DateTime(),
+            'deleted_at'=> null,
+        ]);
     }
 }

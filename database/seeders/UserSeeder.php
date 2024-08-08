@@ -15,9 +15,17 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-         DB::table('users')->insert([
+        DB::table('users')->insert([
             'name' => 'RYOTA',
             'email' => 'ryota@gmail.com',
+            'password' => Hash::make('password'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('users')->insert([
+            'name' => 'RYOTA2',
+            'email' => 'ryota2@gmail.com',
             'password' => Hash::make('password'),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
