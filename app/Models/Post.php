@@ -12,8 +12,11 @@ class Post extends Model
     {//ペジネート機能はいらないが、昇格順に並べたいため
         return $this->oderBy('updated_at', 'DESC')->get();
     }
-    protected $fillable = [
+    protected $fillable = [//postで入力されものを保存するものたち
+        'user_id',
+        'category_id',
         'body',
+        'image_url',
     ];
     public function user()
     {

@@ -21,13 +21,13 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
         $comment->body = $request->comment;//showのdivのtextareaの名前と同じものを受け取っている
         $comment->save();
-       //dd($comment);
+        //dd($comment);
         return redirect('/posts/' .$post->id);//.redirectの中身理解
     }    
-    public function store(Request $request)
+    public function store2(Post $post, Request $request)
     {
-        dd($request);
-        return rediret('/posts/' . $post->id);
+        //dd($request);
+        return redirect('/posts/' . $post->id);
         
     }
 }
