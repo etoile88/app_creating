@@ -16,18 +16,17 @@ use App\Http\Controllers\CommentController;
 */
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
     //上から順にルーティングを見ていくから順番大事
-    Route::post('/posts', 'store')->name('store');
     Route::get('/', 'index')->name('index');
     Route::get('/posts/post', 'post')->name('post');
+    Route::post('/', 'store')->name('store');
     Route::get('/posts/{post}', 'show')->name('show');
-    
-
+    Route::delete('posts/{post}', 'delete')->name('delete');
     });
     
 Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
     Route::get('/posts/comment', 'comment')->name('comment');
     Route::post('/posts/{post}/comment', 'create')->name('create');//ここのルートをどうすればいいかわからない
-    Route::post('/posts', 'store')->name('store');
+    Route::post('/posts', 'store2')->name('store2');
     });
 //基本的なwebページのルート
 // Route::controller(PostController::class)->middleware(['auth'])->group(function () {

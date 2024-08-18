@@ -18,7 +18,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'user_id'=> '1',
             'category_id'=> '1',
-            'image'=> null,
+            'image_url'=> null,
             'body'=> 'こんにちは',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
@@ -27,7 +27,7 @@ class PostSeeder extends Seeder
         DB::table('posts')->insert([
             'user_id'=> '2',
             'category_id'=> '2',
-            'image'=> null,
+            'image_url'=> null,
             'body'=> 'konnnitiha',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
