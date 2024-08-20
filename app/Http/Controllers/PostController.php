@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
-use App\Http\Requests\PostRequest;
 use App\Models\Comment;
+use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;//Cloudinary使うためのuse宣言
 use Illuminate\Support\Facades\DB;//DBを使うためのuse宣言
@@ -22,19 +22,20 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        Post::orderBy("created_at", "DESC")->get();//昇順に並び替え
         $comments = Comment::where('post_id', $post->id)->get();//データの絞り込み方法
         return view('posts.show')->with(['post' => $post, 'comments' => $comments]);
     }
     
     public function post(Post $post)
     {
-        Post::orderBy("created_at", "DESC")->get();//昇順に並び替え
         $categories = DB::table('categories')->get();//DBからテーブルの中身をとってきて変数に代入
         return view('posts.post')->with(['posts' => $post->get(), 'categories' => $categories]);
     }
     
     public function store(PostRequest $request, Post $post, Category $categories)
     {
+        //dd($request);
         //cloudinaryへ画像を送信し、画像のＵＲＬを$image_urlに代入している
         $input = $request['post'];
         //dd($image_url);
