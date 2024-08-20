@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Category;
+use App\Models\User;
+use Cloudinary;//Cloudinary使うためのuse宣言
 
 class ProfileController extends Controller
 {
@@ -56,5 +61,17 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+    
+    public function profile(Post $post, Category $categories)
+    {
+        $post = Post::where('user_id', Auth::user()->id)->get();//自分の投稿のみに絞り込み
+        return view('posts.profile')->with(['posts' => $post, 'categories' => $categories]);
+    }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/user');
     }
 }

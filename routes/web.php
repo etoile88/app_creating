@@ -1,9 +1,8 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +15,11 @@ use App\Http\Controllers\CommentController;
 */
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
     //上から順にルーティングを見ていくから順番大事
+    //基本的なwebページのルート
     Route::get('/', 'index')->name('index');
     Route::get('/posts/post', 'post')->name('post');
     Route::post('/', 'store')->name('store');
     Route::get('/posts/{post}', 'show')->name('show');
-    Route::delete('posts/{post}', 'delete')->name('delete');
     });
     
 Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
@@ -28,22 +27,11 @@ Route::controller(CommentController::class)->middleware(['auth'])->group(functio
     Route::post('/posts/{post}/comment', 'create')->name('create');//ここのルートをどうすればいいかわからない
     Route::post('/posts', 'store2')->name('store2');
     });
-//基本的なwebページのルート
-// Route::controller(PostController::class)->middleware(['auth'])->group(function () {
-//     //上から順にルーティングを見ていくから順番大事
-//     Route::post('/posts', 'store')->name('store');
-//     Route::get('/', 'index')->name('index');
-//     Route::get('/posts/post', 'post')->name('post');
 
-//     });
-    
-// Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
-//     Route::get('/posts/comment', 'comment')->name('comment');
-//     Route::post('/posts/{post}/comment', 'upload')->name('upload');//ここのルートをどうすればいいかわからない
-//     Route::post('/posts', 'store')->name('store');
-// });
-
-
+Route::controller(ProfileController::class)->middleware(['auth'])->group(function () {
+    Route::get('/user', 'profile')->name('profile');
+    Route::delete('/user/{post}', 'delete')->name('delete');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

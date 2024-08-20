@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;//delete論理削除
+
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;//論理的削除の定義
     public function getByLimit(int $limit_count)
     {//ペジネート機能はいらないが、昇格順に並べたいため
         return $this->oderBy('updated_at', 'DESC')->get();
