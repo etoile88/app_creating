@@ -3,9 +3,9 @@
     <x-slot name="header">Post</x-slot>
     <div class="all">
          <div class="select">
-            <p>プロフィール</p>
+            <p><a href="/user">プロフィール</a></p>
             <p>保存</p>
-            <p>like</p>
+            <p><a href="/likes">like</a></p>
         </div>
         <div class="creating">
             <h1>Post</h1>
@@ -14,11 +14,13 @@
                 <div class="post">
                     {{-- バリデーション用のold()関数後にバリデーション要素を付け加える --}}
                     <textarea name="post[body]" placeholder='好きな音楽を共有しよう！' value="{{ old('post.body') }}"></textarea><br>
-                    <select name="post[category_id]">
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
+                    <div class="categories">
+                        <select name="post[category_id]">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="image">
                         <input type="file" name="image">
                     </div> 
