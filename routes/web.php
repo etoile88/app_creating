@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LikesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,12 @@ Route::controller(CommentController::class)->middleware(['auth'])->group(functio
 Route::controller(ProfileController::class)->middleware(['auth'])->group(function () {
     Route::get('/user', 'profile')->name('profile');
     Route::delete('/user/{post}', 'delete')->name('delete');
+});
+
+Route::controller(LikesController::class)->middleware(['auth'])->group(function () {
+    Route::post('posts/{id}/like', 'unlike')->name('unlike');
+    Route::post('posts/{id}/unlike', 'like')->name('like');
+    
 });
 
 Route::get('/dashboard', function () {

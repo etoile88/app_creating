@@ -3,9 +3,9 @@
     <div class="back"><a href="/"><</a></div>
     <div class="show_page">
         <div class="select">
-            <p>プロフィール</p>
+            <p><a href="/user">プロフィール</a></p>
             <p>保存</p>
-            <p>like</p>
+            <p><a href="/likes">like</a></p>
         </div>
         <div class="detail">
             <div class="posts">
@@ -29,14 +29,23 @@
                             <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
                         </div>
                         @endif
-                    @endforeach 
+                        {{--いいね機能--}}      
+                        <form method="POST" action="{{ route($post->is_liked_by_auth_user() ? 'unlike' : 'like', ['id' => $post->id]) }}">
+                            @csrf
+                            <button type="submit" class="like-button">
+                                いいね<span class="badge">{{ $post->likes->count() }}</span>
+                            </button>
+                        </form>
+                    @endforeach
                 </div>
-                <form action="/posts/{{ $post->id }}/comment" method="POST" name="comment_form">
-                    @csrf
-                    <textarea name="comment" placeholder='コメントしよう！'></textarea>
-                    {{-- <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p> --}}
-                    <input type="submit" value="送信"/>
-                </form>
+                <div class="comment_form">
+                    <form action="/posts/{{ $post->id }}/comment" method="POST" name="comment_form">
+                        @csrf
+                        <textarea name="comment" placeholder='コメントしよう！'></textarea>
+                        {{-- <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p> --}}
+                        <input type="submit" value="送信"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

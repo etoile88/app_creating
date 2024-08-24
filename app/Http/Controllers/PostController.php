@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Like;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;//Cloudinary使うためのuse宣言

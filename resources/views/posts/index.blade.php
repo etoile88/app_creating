@@ -3,8 +3,8 @@
     <div class="all">
         <div class="select">
             <p><a href="/user">プロフィール</a></p>
+            <p><a href="/likes">like</a></p>
             <p>保存</p>
-            <p>like</p>
         </div>
         <div class="posts">
             <div class="create">
@@ -20,6 +20,13 @@
                     <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
                 </div>
             　　@endif
+                {{--いいね機能--}}
+                <form method="POST" action="{{ route($post->is_liked_by_auth_user() ? 'unlike' : 'like', ['id' => $post->id]) }}">
+                    @csrf
+                    <button type="submit" class="like-button">
+                        いいね<span class="badge">{{ $post->likes->count() }}</span>
+                    </button>
+                </form>
             @endforeach
         </div>
     </div>
