@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->string('image_url')->nullable();
+            $table->string('artist',50);
+            $table->string('song', 50);
             $table->string('body', 400);
             $table->timestamps();
             $table->softDeletes();
