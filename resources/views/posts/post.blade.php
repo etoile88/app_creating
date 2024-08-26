@@ -6,21 +6,26 @@
             <p><a href="/user">プロフィール</a></p>
             <p>保存</p>
             <p><a href="/likes">like</a></p>
+            <p><a href="/search">Search</a></p>
         </div>
+        {{--投稿機能--}}
         <div class="creating">
             <h1>Post</h1>
             <form action="/" method="POST" enctype="multipart/form-data">{{-- enctypeは画像添付のためのファイルアップデートのコード--}}
                 @csrf
                 <div class="post">
-                    {{-- バリデーション用のold()関数後にバリデーション要素を付け加える --}}
+                    <textarea name="post[artist]" placeholder='アーティスト名' value"{{ old('post.song') }}"></textarea><br>
+                    <textarea name="post[song]" placeholder='曲名' value="{{ old('post.song') }}"></textarea><br>
                     <textarea name="post[body]" placeholder='好きな音楽を共有しよう！' value="{{ old('post.body') }}"></textarea><br>
                     <div class="categories">
                         <select name="post[category_id]">
+                            <option value="">未選択</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
+                    {{--写真投稿機能--}}
                     <div class="image">
                         <input type="file" name="image">
                     </div> 

@@ -37,7 +37,6 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post, Category $categories)
     {
         //dd($request);
-        //cloudinaryへ画像を送信し、画像のＵＲＬを$image_urlに代入している
         $input = $request['post'];
         //dd($image_url);
         if($request->file('image')){//画像ファイルが送られた時だけ処理

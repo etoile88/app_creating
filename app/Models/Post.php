@@ -19,6 +19,8 @@ class Post extends Model
     protected $fillable = [//postで入力されものを保存するものたち
       'user_id',
       'category_id',
+      'artist',
+      'song',
       'body',
       'image_url',
     ];

@@ -20,6 +20,8 @@ class PostSeeder extends Seeder
             'category_id'=> '1',
             'image_url'=> null,
             'body'=> 'こんにちは',
+            'artist'=> 'Mrs.GEENAPPLE',
+            'song' => 'ライラック',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
         ]);
@@ -28,7 +30,9 @@ class PostSeeder extends Seeder
             'user_id'=> '2',
             'category_id'=> '2',
             'image_url'=> null,
-            'body'=> 'konnnitiha',
+            'body'=> 'マジでかっこいい',
+            'artist'=> 'ONE OK ROCK',
+            'song'=> 'We are',
             'created_at'=> new DateTime(),
             'updated_at'=> new DateTime(),
         ]);
