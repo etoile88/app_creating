@@ -33,9 +33,10 @@
                     @csrf
                     <button type="submit" class="like-button">
                         いいね<span class="badge">{{ $post->likes->count() }}</span>
-                    </button>
+                    </button><br>
+                </form>
                 {{--削除機能--}}
-                <form action="/user/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                <form action="/user/{{ $post->id }}" id="form_{{ $post->id }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="button" onclick="deletePost({{ $post->id }})">delete</button>

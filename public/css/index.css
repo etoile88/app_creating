@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/*body {
+    background-color: #333333;
+    color: #FFFFFF; 
+}*/
+/*どうさしてない*/
+x-app-layout {
+    background-color: #333333;
+    color: #FFFFFF; 
+}
+h1 {
+    text-align: left;
+}
+.all {
+    background-color: /*#333333*/#FFFFFF;
+}
+/*機能してない*/
+.header{ 
+    color: #9966CC;	
+}
+.all {
+    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+.select { 
+    background-color: #FFFFFF;
+    color: #9966CC;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 50px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #9966CC;
+    list-style-type: square;
+}
+.create {
+    color: #9966CC;
+    text-align: center;
+    margin-left: 835px;
+    margin-right: 25px;
+    border-color: #9966CC;
+    border-width: thick;
+    border-style: ridge;
+}
+.posts {
+    background-color: #FFFFFF;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #9966CC;
+    border-bottom-width: thin;    
+    margin-bottom: 5px;
+}
+
+/*cssがほかのblade.phpで機能するかの実験->いけた*/
+/*post.blade.php*/
+.post_page {
+    /*background-color: #333333;*/
+    /*color: #FFFFFF;*/
+}
+h1 {
+    color: #9966CC;
+    text-align: center;
+}
+.user_id {
+    text-align: left;
+}
+.creating {
+    text-align: center;
+    }
+.back {
+    background-color: #FFFFFF;
+    color: #9966CC;
+    font-size: 250%;
+}
+.category {
+}
+/*show.blade.php*/
+.show_page {
+    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+.detail {
+    text-align: center;
+}
+.comment {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #9966CC;
+    border-bottom-width: thin;    
+    margin-bottom: 15px;
+}
+.comment_form {
+    color: #9966CC;
+}
+
+/*profile.blade.php*/
+.profile {
+    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+
+
+/*search.blade.php
+/* 全体のコンテナ */
+.container {
+    /*background-color: #FFFFFF;*/
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 中央寄せ */
+.centered {
+    text-align: center;
+}
+
+/* フォームグループのスタイル */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* ラベルのスタイル */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ボタンのスタイル */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* ボタンのホバースタイル */
+button:hover {
+    background-color: #0056b3;
+}
