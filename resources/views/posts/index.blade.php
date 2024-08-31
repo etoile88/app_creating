@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">アプリ名</x-slot>
+    <x-slot name="header">MFinder</x-slot>
     <div class="all">
         <div class="select">
             <p><a href="/user">プロフィール</a></p>
@@ -14,14 +14,14 @@
             @foreach($posts as $post)
                 <div class="post">
                     <h1 class="user_id">{{ $post->user->name }}</h1>
-                    <p class="artist">{{$post->artist }}</p>
-                    <p class="song">{{ $post->song }}</p>
+                    <p class="artist">{{$post->artist }}の{{ $post->song }}の曲がおすすめ！</p>
+                    {{--<p class="song">{{ $post->song }}</p>--}}
                     <p class="body"><a href="/posts/{{ $post->id }}">{{ $post->body }}</a></p>
                     <p>カテゴリー:{{ $post->category->name }}</p>
         　　      </div>
                 @if($post->image_url)
                 <div>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
+                    <a href="/"><img src="{{ $post->image_url }}" alt="画像が読み込めません。"></a>
                 </div>
             　　@endif
             　　{{--Youtubeへの遷移機能--}}
