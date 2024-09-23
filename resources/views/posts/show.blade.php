@@ -15,11 +15,13 @@
                 <p>{{ $post->song }}</p>
                 <p>{{ $post->body }}</p>
                 <p>カテゴリー:{{ $post->category->name }}</p>
-                @if($post->image_url)
-                <div>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
+                <div class="cat">
+                    @if($post->image_url)
+                    <div>
+                        <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
+                    </div>
+                    @endif
                 </div>
-                @endif
                 {{--Youtubeへの遷移機能--}}
                 <div class="url">
                     <a href="https://www.youtube.com/results?search_query={{ $post->song }}">URL</a>

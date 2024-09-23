@@ -47,11 +47,13 @@
                     <p class="body"><a href="/posts/{{ $post->id }}">{{ $post->body }}</a></p>
                     <p>カテゴリー:{{ $post->category->name }}</p>
         　　      </div>
-                @if($post->image_url)
-                <div>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
-                </div>
-            　　@endif
+                <div class="img">
+                    @if($post->image_url)
+                    <div>
+                        <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
+                    </div>
+                　　@endif
+            　　</div>
                 {{--いいね機能--}}
                 <form method="POST" action="{{ route($post->is_liked_by_auth_user() ? 'unlike' : 'like', ['id' => $post->id]) }}">
                     @csrf

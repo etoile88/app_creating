@@ -67,6 +67,7 @@ class ProfileController extends Controller
     public function profile(Post $post, Category $categories)
     {
         $post = Post::where('user_id', Auth::user()->id)->get();//自分の投稿のみに絞り込み
+        $post = Post::orderBy("created_at", "DESC")->get();
         return view('posts.profile')->with(['posts' => $post, 'categories' => $categories]);
     }
     
