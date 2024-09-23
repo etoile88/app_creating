@@ -19,11 +19,11 @@
                     <p class="body"><a href="/posts/{{ $post->id }}">{{ $post->body }}</a></p>
                     <p>カテゴリー:{{ $post->category->name }}</p>
         　　      </div>
-                @if($post->image_url)
-                <div>
-                    <a href="/"><img src="{{ $post->image_url }}" alt="画像が読み込めません。"></a>
-                </div>
-            　　@endif
+                <div class="cat">
+                    @if($post->image_url)
+                        <a href="/"><img src="{{ $post->image_url }}" alt="画像が読み込めません。"></a>
+            　　      @endif
+            　　</div>
             　　{{--Youtubeへの遷移機能--}}
                 <div class="url">
                     <a href="https://www.youtube.com/results?search_query={{ $post->song }}">URL</a>

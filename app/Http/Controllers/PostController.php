@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\DB;//DBを使うためのuse宣言
 
 class PostController extends Controller
 {
-    public function index(Post $post)//レバテックみての文
+    public function index(Post $post)
     {//インポートしたPostをインスタンス化して$postとして使用。
+        $post = Post::orderBy('created_at', 'DESC');
         return view('posts.index')->with(['posts' => $post->get()]);
     }
     
     public function show(Post $post)
     {
-        Post::orderBy("created_at", "DESC")->get();//昇順に並び替え
+        Post::orderBy("created_at", "DESC")->get();
         $comments = Comment::where('post_id', $post->id)->get();//データの絞り込み方法
         return view('posts.show')->with(['post' => $post, 'comments' => $comments]);
     }
