@@ -47,11 +47,9 @@
                     <p class="body"><a href="/posts/{{ $post->id }}">{{ $post->body }}</a></p>
                     <p>カテゴリー:{{ $post->category->name }}</p>
         　　      </div>
-                <div class="img">
+                <div class="cat">
                     @if($post->image_url)
-                    <div>
                         <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
-                    </div>
                 　　@endif
             　　</div>
                 {{--いいね機能--}}
