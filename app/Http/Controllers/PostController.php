@@ -44,14 +44,9 @@ class PostController extends Controller
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();//fileの()の中身はpost.bladeのname属性
             $input += ['image_url' => $image_url]; //追加
         }
+
         $input['user_id'] = Auth::id();
-        //$input['category_id'] = $categories->id;//ここのぶん！
         $post->fill($input)->save();
-        //$post->user_id = Auth::id();
-        //$post->body = $request->body;
-        //$post->category_id = $categories->id;//変更部分！
-        //$post->image_url = $image_url;
-        //dd($input);
         
         return redirect('/posts/' . $post->id); 
         

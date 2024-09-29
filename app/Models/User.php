@@ -43,24 +43,32 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     
-    public function posts()//リレーションあってるかわからん
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }
-    public function likes()//リレーションあってるかわからん
+    public function likes()
     {
         return $this->hasMany(Like::class);
     } 
-    public function keeps()//リレーションあってるかわからん
+    public function keeps()
     {
         return $this->hasMany(Keep::class);
     }
-    public function comments()//リレーションあってるかわからん
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }
-     public function like_comments()//リレーションあってるかわからん
+     public function like_comments()
     {
         return $this->hasMany(Like_comment::class);
+    }
+    public function follows()
+    {
+        return $this->hasMany(Following::class, 'user_id', 'id');
+    }
+    public function followedBy()
+    {
+        return $this->hasMany(Following::class, 'following_user_id', 'id');
     }
 }

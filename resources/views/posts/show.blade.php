@@ -17,9 +17,7 @@
                 <p>カテゴリー:{{ $post->category->name }}</p>
                 <div class="cat">
                     @if($post->image_url)
-                    <div>
                         <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
-                    </div>
                     @endif
                 </div>
                 {{--Youtubeへの遷移機能--}}

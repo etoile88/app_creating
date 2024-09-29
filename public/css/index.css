@@ -41,15 +41,7 @@ img {
  width: auto; 
  max-height: 100%; 
 }
-/*img {
- height: 50%;
- width: 50%;
- object-fit: contain;
-}
-.cat {
- height:300px;
- width: 300px;
-}*/
+
 .create {
     color: #9966CC;
     text-align: center;
