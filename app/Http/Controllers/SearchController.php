@@ -33,17 +33,23 @@ class SearchController extends Controller
     public function searchsongs(Request $request)
     {
         //入力される値nameの中身を定義する
-        $searchWord = $request->input('searchWord'); //商品名の値
+        $searchWord = $request->input('searchWord'); //検索語の値
         $categoryId = $request->input('categoryId'); //カテゴリの値
         
         //dd($searchWord);
         
         $query = Post::query();
-        //商品名が入力された場合、m_productsテーブルから一致する商品を$queryに代入
-        if (isset($searchWord)) {//pos_idで持ってくるのはびみょうかも？
-            $query->where('song', 'like', '%' . self::escapeLike($searchWord) . '%');
-        }
-        //カテゴリが選択された場合、categoriesテーブルからcategory_idが一致する商品を$queryに代入
+        
+        if (isset($searchWord)) {
+            $escapedSearchWord = self::escapeLike($searchWord);
+        
+            $query->where(function ($query) use ($escapedSearchWord) {
+                $query->where('song', 'like', '%' . $escapedSearchWord . '%')//songカラム
+                      ->orWhere('artist', 'like', '%' . $escapedSearchWord . '%');//artisatカラム
+            });
+}
+
+        //カテゴリが選択された場合、categoriesテーブルからcategory_idが一致するものを$queryに代入
         if (isset($categoryId)) {
             $query->where('category_id', $categoryId);
         }
