@@ -5,7 +5,7 @@
         <div class="select">
             <p><a href="/user">プロフィール</a></p>
             <p>保存</p>
-            <p><a href="/likes">like</a></p>
+            <p>like</p>
             <p><a href="/search">Search</a></p>
         </div>
         <div class="posts">
