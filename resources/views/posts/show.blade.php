@@ -5,7 +5,7 @@
         <div class="select">
             <p><a href="/user">プロフィール</a></p>
             <p>保存</p>
-            <p><a href="/likes">like</a></p>
+            <p>like</p>
             <p><a href="/search">Search</a></p>
         </div>
         <div class="detail">
@@ -38,11 +38,6 @@
                     @foreach($comments as $comment)
                         <p>{{ $comment->user->name }}</p>
                         <p>{{ $comment->body }}</p>
-                        @if($post->image_url)
-                        <div>
-                            <img src="{{ $post->image_url }}" alt="画像が読み込めません。">
-                        </div>
-                        @endif
                         {{--いいね機能--}}      
                         <form method="POST" action="{{ route($post->is_liked_by_auth_user() ? 'unlike' : 'like', ['id' => $post->id]) }}">
                             @csrf

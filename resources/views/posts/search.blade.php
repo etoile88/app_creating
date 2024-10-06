@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">検索画面</x-slot>
+    <x-slot name="header">Search</x-slot>
     <div class="back"><a href="/"><</a></div> 
     <div class="container">
         <div class="centered">
