@@ -24,7 +24,7 @@ class LikesController extends Controller
             'post_id' => $id,
             'user_id' => Auth::id(),
         ]);
-        //dd($id);
+        
         
         return redirect()->back();
     }

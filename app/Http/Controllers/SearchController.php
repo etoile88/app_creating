@@ -9,12 +9,12 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
-use Cloudinary;//Cloudinary使うためのuse宣言
-use Illuminate\Support\Facades\DB;//DBを使うためのuse宣言
+use Cloudinary;
+use Illuminate\Support\Facades\DB
 use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller
-{//ここ理解
+{
     public function search(Request $request, Category $categories, Post $post)
     {
         $posts = Post::Paginate(15);
@@ -54,7 +54,6 @@ class SearchController extends Controller
             $query->where('category_id', $categoryId);
         }
         //dd($query);
-        //$queryをcategory_idの昇順に並び替えて$productsに代入
         $posts = $query->orderBy('category_id', 'asc')->paginate(15);
 
 

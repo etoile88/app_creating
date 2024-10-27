@@ -51,7 +51,6 @@
                     <form action="/posts/{{ $post->id }}/comment" method="POST" name="comment_form">
                         @csrf
                         <textarea name="comment" placeholder='コメントしよう！'></textarea>
-                        {{-- <p class="body_error" style="color:red">{{ $errors->first('post.body') }}</p> --}}
                         <input type="submit" value="送信"/>
                     </form>
                 </div>

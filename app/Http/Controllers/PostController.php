@@ -9,8 +9,8 @@ use App\Models\Comment;
 use App\Models\Like;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
-use Cloudinary;//Cloudinary使うためのuse宣言
-use Illuminate\Support\Facades\DB;//DBを使うためのuse宣言
+use Cloudinary;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -39,10 +39,9 @@ class PostController extends Controller
     {
         //dd($request);
         $input = $request['post'];
-        //dd($image_url);
-        if($request->file('image')){//画像ファイルが送られた時だけ処理
+        if($request->file('image')){
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();//fileの()の中身はpost.bladeのname属性
-            $input += ['image_url' => $image_url]; //追加
+            $input += ['image_url' => $image_url]; 
         }
 
         $input['user_id'] = Auth::id();

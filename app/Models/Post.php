@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
   use HasFactory;
-  use SoftDeletes;//論理的削除の定義
+  use SoftDeletes;
 
-  protected $fillable = [//postで入力されものを保存するものたち
+  protected $fillable = [
     'user_id',
     'category_id',
     'artist',

@@ -28,7 +28,7 @@ class FollowUserController extends Controller
         $isFollowed = auth()->user()->follows()->where('following_user_id', $user->id)->exists();
 
         return view('posts.profile')->with([
-            'posts' => $posts, // ここを修正
+            'posts' => $posts, 
             'followCount' => $followCount,
             'isFollowed' => $isFollowed,
         ]);
@@ -46,7 +46,7 @@ class FollowUserController extends Controller
         }
 
         // 投稿データを取得
-        $posts = Post::where('user_id', $user->id)->get(); // ここも修正
+        $posts = Post::where('user_id', $user->id)->get(); 
 
         // フォロー数を取得
         $followCount = Following::where('following_user_id', $user->id)->count();
@@ -55,7 +55,7 @@ class FollowUserController extends Controller
         $isFollowed = auth()->user()->follows()->where('following_user_id', $user->id)->exists();
 
         return view('posts.profile')->with([
-            'posts' => $posts, // ここも修正
+            'posts' => $posts,
             'followCount' => $followCount,
             'isFollowed' => $isFollowed,
         ]);

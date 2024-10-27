@@ -1,9 +1,4 @@
 @charset "UTF-8";
-/*body {
-    background-color: #333333;
-    color: #FFFFFF; 
-}*/
-/*どうさしてない*/
 x-app-layout {
     background-color: #333333;
     color: #FFFFFF; 
@@ -12,9 +7,8 @@ h1 {
     text-align: left;
 }
 .all {
-    background-color: /*#333333*/#FFFFFF;
+    background-color: #FFFFFF;
 }
-/*機能してない*/
 .header{ 
     color: #9966CC;	
 }
@@ -60,12 +54,8 @@ img {
     margin-bottom: 5px;
 }
 
-/*cssがほかのblade.phpで機能するかの実験->いけた*/
+
 /*post.blade.php*/
-.post_page {
-    /*background-color: #333333;*/
-    /*color: #FFFFFF;*/
-}
 h1 {
     color: #9966CC;
     text-align: center;
@@ -81,8 +71,7 @@ h1 {
     color: #9966CC;
     font-size: 250%;
 }
-.category {
-}
+
 /*show.blade.php*/
 .show_page {
     display: flex;

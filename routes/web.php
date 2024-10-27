@@ -18,7 +18,6 @@ use App\Http\Controllers\SearchController;
 */
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
     //上から順にルーティングを見ていくから順番大事
-    //基本的なwebページのルート
     Route::get('/', 'index')->name('index');
     Route::get('/posts/post', 'post')->name('post');
     Route::post('/', 'store')->name('store');
@@ -27,7 +26,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
     
 Route::controller(CommentController::class)->middleware(['auth'])->group(function () {
     Route::get('/posts/comment', 'comment')->name('comment');
-    Route::post('/posts/{post}/comment', 'create')->name('create');//ここのルートをどうすればいいかわからない
+    Route::post('/posts/{post}/comment', 'create')->name('create');
     Route::post('/posts', 'store2')->name('store2');
     });
 
