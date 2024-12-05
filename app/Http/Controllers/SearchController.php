@@ -10,8 +10,8 @@ use App\Models\User;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
-use Illuminate\Support\Facades\DB
-use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
+
 
 class SearchController extends Controller
 {
